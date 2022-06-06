@@ -1,1 +1,54 @@
 #+title: lua-i18n
+
+A minimalist internationali(s|z)ation lib for moonscript and Lua
+
+* Getting the lib
+
+Drop ~i18n.moon~ (if using moonscript) or ~i18n.lua~ somewhere in your package
+path.
+
+* Using the lib
+** Writing i18n files
+The translation file consists of ~key=value~ pairs and comments.
+
+Empty lines and whitespace at the begining of the line are ignored.
+
+Comments start with a ~#~ and go to the end of the line. To add a ~#~ in the
+translation, use the ~`|~ digraph.
+
+Translations must be on a single line. to represent a line break use the ~``~
+digraph.
+
+Replacement strings are represented by a name inclosed in ~%{~ ... ~}~.
+Any of those characters (~`~, ~|~, ~%~, ~{~ and ~}~) are fine to use by themselves in text.
+
+Here is a small example
+#+begin_src
+# this is a comment
+
+username=Username
+pwd=Password
+welcome_message=Welcome %{name}!``Here is more text on a new line``to insert a number sign in replacement text you use the `| sequence
+#+end_src
+
+** Using it in programs
+First require the library
+
+#+begin_src lua
+local i18n = require "i18n"
+#+end_src
+
+Then load the i18n file
+
+#+begin_src lua
+local en_US = i18n.ldfile "en_US.i18n"
+#+end_src
+
+You can now get the tranlation by calling the value returned by ~ldfile~ with
+the tranlation key and the parameters.
+
+#+begin_src lua
+print(en_US("username"))
+print(en_US("welcome_message", {name = "username"}))
+#+end_src
+
