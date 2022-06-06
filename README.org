@@ -44,8 +44,8 @@ Then load the i18n file
 local en_US = i18n.ldfile "en_US.i18n"
 #+end_src
 
-You can now get the tranlation by calling the value returned by ~ldfile~ with
-the tranlation key and the parameters.
+You can now get the translation by calling the value returned by ~ldfile~ with
+the trandlation key and the parameters.
 
 #+begin_src lua
 print(en_US("username"))
