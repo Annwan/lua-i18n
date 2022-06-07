@@ -4,7 +4,12 @@ A minimalist internationali(s|z)ation lib for moonscript and Lua
 
 * Getting the lib
 
-Drop ~i18n.moon~ (if using moonscript) or ~i18n.lua~ somewhere in your package
+You can get it via luarocks
+#+begin_src sh
+luarocks install moon-i18n
+#+end_src
+
+Yoy can also drop ~i18n.moon~ (if using moonscript) or ~i18n.lua~ somewhere in your package
 path.
 
 * Using the lib
