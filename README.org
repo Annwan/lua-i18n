@@ -1,4 +1,4 @@
-#+title: lua-i18n
+#+title: moon-i18n
 
 A minimalist internationali(s|z)ation lib for moonscript and Lua
 
